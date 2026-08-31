@@ -94,3 +94,9 @@ Used Z3 to prove the C code is mathematically identical to the spec across every
 
 ### Phase 5 — Optimization: 
 Checked the compiler's output first and found it was wasting work by reloading the same weights repeatedly. Fixed that with packed loads and loop unrolling, cutting instructions per pixel by 67%. Re-running the Phase 4 proof against the optimized code timed out at first, which solved by breaking the proof into two smaller pieces.
+
+## GenAI Statement
+Generative AI was used in the creation of this project to: (1) teach me the concepts behind the project, (2) proofread code, and (3) assist in debugging.
+
+## Future Work
+I plan to move forward with this project by actually applying it to robotics with the RP2040.
