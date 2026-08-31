@@ -1,0 +1,237 @@
+
+model_naive.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <model_run_naive>:
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	46de      	mov	lr, fp
+   4:	464e      	mov	r6, r9
+   6:	4645      	mov	r5, r8
+   8:	4657      	mov	r7, sl
+   a:	b5e0      	push	{r5, r6, r7, lr}
+   c:	4d70      	ldr	r5, [pc, #448]	@ (1d0 <model_run_naive+0x1d0>)
+   e:	b08b      	sub	sp, #44	@ 0x2c
+  10:	000e      	movs	r6, r1
+  12:	2240      	movs	r2, #64	@ 0x40
+  14:	0001      	movs	r1, r0
+  16:	0028      	movs	r0, r5
+  18:	f7ff fffe 	bl	0 <memcpy>
+  1c:	2310      	movs	r3, #16
+  1e:	469b      	mov	fp, r3
+  20:	4b6c      	ldr	r3, [pc, #432]	@ (1d4 <model_run_naive+0x1d4>)
+  22:	4c6d      	ldr	r4, [pc, #436]	@ (1d8 <model_run_naive+0x1d8>)
+  24:	9305      	str	r3, [sp, #20]
+  26:	2300      	movs	r3, #0
+  28:	44a3      	add	fp, r4
+  2a:	9306      	str	r3, [sp, #24]
+  2c:	9608      	str	r6, [sp, #32]
+  2e:	9509      	str	r5, [sp, #36]	@ 0x24
+  30:	6823      	ldr	r3, [r4, #0]
+  32:	2518      	movs	r5, #24
+  34:	469a      	mov	sl, r3
+  36:	4b67      	ldr	r3, [pc, #412]	@ (1d4 <model_run_naive+0x1d4>)
+  38:	9407      	str	r4, [sp, #28]
+  3a:	4699      	mov	r9, r3
+  3c:	9b05      	ldr	r3, [sp, #20]
+  3e:	9302      	str	r3, [sp, #8]
+  40:	2300      	movs	r3, #0
+  42:	9304      	str	r3, [sp, #16]
+  44:	9303      	str	r3, [sp, #12]
+  46:	2390      	movs	r3, #144	@ 0x90
+  48:	444b      	add	r3, r9
+  4a:	2400      	movs	r4, #0
+  4c:	4698      	mov	r8, r3
+  4e:	4643      	mov	r3, r8
+  50:	465e      	mov	r6, fp
+  52:	4650      	mov	r0, sl
+  54:	9a03      	ldr	r2, [sp, #12]
+  56:	191f      	adds	r7, r3, r4
+  58:	2300      	movs	r3, #0
+  5a:	9201      	str	r2, [sp, #4]
+  5c:	227f      	movs	r2, #127	@ 0x7f
+  5e:	4252      	negs	r2, r2
+  60:	4694      	mov	ip, r2
+  62:	5cf9      	ldrb	r1, [r7, r3]
+  64:	448c      	add	ip, r1
+  66:	4662      	mov	r2, ip
+  68:	56f1      	ldrsb	r1, [r6, r3]
+  6a:	3301      	adds	r3, #1
+  6c:	4351      	muls	r1, r2
+  6e:	1840      	adds	r0, r0, r1
+  70:	2b03      	cmp	r3, #3
+  72:	d1f3      	bne.n	5c <model_run_naive+0x5c>
+  74:	9a01      	ldr	r2, [sp, #4]
+  76:	3708      	adds	r7, #8
+  78:	3208      	adds	r2, #8
+  7a:	3603      	adds	r6, #3
+  7c:	42aa      	cmp	r2, r5
+  7e:	d1eb      	bne.n	58 <model_run_naive+0x58>
+  80:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  84:	4a55      	ldr	r2, [pc, #340]	@ (1dc <model_run_naive+0x1dc>)
+  86:	4b56      	ldr	r3, [pc, #344]	@ (1e0 <model_run_naive+0x1e0>)
+  88:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  8c:	f7ff fffe 	bl	0 <nearbyint>
+  90:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  94:	3088      	adds	r0, #136	@ 0x88
+  96:	28ff      	cmp	r0, #255	@ 0xff
+  98:	dc00      	bgt.n	9c <model_run_naive+0x9c>
+  9a:	e094      	b.n	1c6 <model_run_naive+0x1c6>
+  9c:	20ff      	movs	r0, #255	@ 0xff
+  9e:	9b02      	ldr	r3, [sp, #8]
+  a0:	5518      	strb	r0, [r3, r4]
+  a2:	3401      	adds	r4, #1
+  a4:	2c06      	cmp	r4, #6
+  a6:	d1d2      	bne.n	4e <model_run_naive+0x4e>
+  a8:	9a02      	ldr	r2, [sp, #8]
+  aa:	9b04      	ldr	r3, [sp, #16]
+  ac:	3206      	adds	r2, #6
+  ae:	9202      	str	r2, [sp, #8]
+  b0:	9a03      	ldr	r2, [sp, #12]
+  b2:	3301      	adds	r3, #1
+  b4:	3208      	adds	r2, #8
+  b6:	9203      	str	r2, [sp, #12]
+  b8:	2208      	movs	r2, #8
+  ba:	4694      	mov	ip, r2
+  bc:	9304      	str	r3, [sp, #16]
+  be:	3508      	adds	r5, #8
+  c0:	44e1      	add	r9, ip
+  c2:	2b06      	cmp	r3, #6
+  c4:	d1bf      	bne.n	46 <model_run_naive+0x46>
+  c6:	2209      	movs	r2, #9
+  c8:	4694      	mov	ip, r2
+  ca:	9b06      	ldr	r3, [sp, #24]
+  cc:	9a05      	ldr	r2, [sp, #20]
+  ce:	9c07      	ldr	r4, [sp, #28]
+  d0:	3309      	adds	r3, #9
+  d2:	3224      	adds	r2, #36	@ 0x24
+  d4:	3404      	adds	r4, #4
+  d6:	9306      	str	r3, [sp, #24]
+  d8:	44e3      	add	fp, ip
+  da:	9205      	str	r2, [sp, #20]
+  dc:	2b24      	cmp	r3, #36	@ 0x24
+  de:	d1a7      	bne.n	30 <model_run_naive+0x30>
+  e0:	483c      	ldr	r0, [pc, #240]	@ (1d4 <model_run_naive+0x1d4>)
+  e2:	9e08      	ldr	r6, [sp, #32]
+  e4:	9d09      	ldr	r5, [sp, #36]	@ 0x24
+  e6:	4b3b      	ldr	r3, [pc, #236]	@ (1d4 <model_run_naive+0x1d4>)
+  e8:	3090      	adds	r0, #144	@ 0x90
+  ea:	781a      	ldrb	r2, [r3, #0]
+  ec:	1c11      	adds	r1, r2, #0
+  ee:	2a87      	cmp	r2, #135	@ 0x87
+  f0:	d801      	bhi.n	f6 <model_run_naive+0xf6>
+  f2:	2288      	movs	r2, #136	@ 0x88
+  f4:	1c11      	adds	r1, r2, #0
+  f6:	7019      	strb	r1, [r3, #0]
+  f8:	3301      	adds	r3, #1
+  fa:	4298      	cmp	r0, r3
+  fc:	d1f5      	bne.n	ea <model_run_naive+0xea>
+  fe:	2309      	movs	r3, #9
+ 100:	4934      	ldr	r1, [pc, #208]	@ (1d4 <model_run_naive+0x1d4>)
+ 102:	001c      	movs	r4, r3
+ 104:	3906      	subs	r1, #6
+ 106:	468b      	mov	fp, r1
+ 108:	4932      	ldr	r1, [pc, #200]	@ (1d4 <model_run_naive+0x1d4>)
+ 10a:	2200      	movs	r2, #0
+ 10c:	3187      	adds	r1, #135	@ 0x87
+ 10e:	9105      	str	r1, [sp, #20]
+ 110:	0033      	movs	r3, r6
+ 112:	0029      	movs	r1, r5
+ 114:	1d90      	adds	r0, r2, #6
+ 116:	4684      	mov	ip, r0
+ 118:	2009      	movs	r0, #9
+ 11a:	4240      	negs	r0, r0
+ 11c:	4680      	mov	r8, r0
+ 11e:	9805      	ldr	r0, [sp, #20]
+ 120:	44a0      	add	r8, r4
+ 122:	1906      	adds	r6, r0, r4
+ 124:	0015      	movs	r5, r2
+ 126:	4640      	mov	r0, r8
+ 128:	4257      	negs	r7, r2
+ 12a:	9204      	str	r2, [sp, #16]
+ 12c:	0022      	movs	r2, r4
+ 12e:	9001      	str	r0, [sp, #4]
+ 130:	4664      	mov	r4, ip
+ 132:	0018      	movs	r0, r3
+ 134:	4694      	mov	ip, r2
+ 136:	000b      	movs	r3, r1
+ 138:	465a      	mov	r2, fp
+ 13a:	2100      	movs	r1, #0
+ 13c:	4698      	mov	r8, r3
+ 13e:	1912      	adds	r2, r2, r4
+ 140:	9402      	str	r4, [sp, #8]
+ 142:	9003      	str	r0, [sp, #12]
+ 144:	7853      	ldrb	r3, [r2, #1]
+ 146:	469a      	mov	sl, r3
+ 148:	7813      	ldrb	r3, [r2, #0]
+ 14a:	1c1c      	adds	r4, r3, #0
+ 14c:	4553      	cmp	r3, sl
+ 14e:	d200      	bcs.n	152 <model_run_naive+0x152>
+ 150:	4654      	mov	r4, sl
+ 152:	7993      	ldrb	r3, [r2, #6]
+ 154:	4699      	mov	r9, r3
+ 156:	b2e3      	uxtb	r3, r4
+ 158:	454b      	cmp	r3, r9
+ 15a:	d200      	bcs.n	15e <model_run_naive+0x15e>
+ 15c:	464c      	mov	r4, r9
+ 15e:	79d3      	ldrb	r3, [r2, #7]
+ 160:	4699      	mov	r9, r3
+ 162:	b2e3      	uxtb	r3, r4
+ 164:	454b      	cmp	r3, r9
+ 166:	d200      	bcs.n	16a <model_run_naive+0x16a>
+ 168:	464c      	mov	r4, r9
+ 16a:	19d3      	adds	r3, r2, r7
+ 16c:	5d58      	ldrb	r0, [r3, r5]
+ 16e:	4681      	mov	r9, r0
+ 170:	b2e0      	uxtb	r0, r4
+ 172:	4548      	cmp	r0, r9
+ 174:	d200      	bcs.n	178 <model_run_naive+0x178>
+ 176:	464c      	mov	r4, r9
+ 178:	5474      	strb	r4, [r6, r1]
+ 17a:	3101      	adds	r1, #1
+ 17c:	3202      	adds	r2, #2
+ 17e:	2903      	cmp	r1, #3
+ 180:	d1e0      	bne.n	144 <model_run_naive+0x144>
+ 182:	9a01      	ldr	r2, [sp, #4]
+ 184:	9c02      	ldr	r4, [sp, #8]
+ 186:	3203      	adds	r2, #3
+ 188:	4643      	mov	r3, r8
+ 18a:	9803      	ldr	r0, [sp, #12]
+ 18c:	350c      	adds	r5, #12
+ 18e:	3f0c      	subs	r7, #12
+ 190:	340c      	adds	r4, #12
+ 192:	9201      	str	r2, [sp, #4]
+ 194:	3603      	adds	r6, #3
+ 196:	4562      	cmp	r2, ip
+ 198:	d1ce      	bne.n	138 <model_run_naive+0x138>
+ 19a:	9a01      	ldr	r2, [sp, #4]
+ 19c:	0019      	movs	r1, r3
+ 19e:	4690      	mov	r8, r2
+ 1a0:	0003      	movs	r3, r0
+ 1a2:	4644      	mov	r4, r8
+ 1a4:	4640      	mov	r0, r8
+ 1a6:	9a04      	ldr	r2, [sp, #16]
+ 1a8:	3409      	adds	r4, #9
+ 1aa:	3224      	adds	r2, #36	@ 0x24
+ 1ac:	2824      	cmp	r0, #36	@ 0x24
+ 1ae:	d1b1      	bne.n	114 <model_run_naive+0x114>
+ 1b0:	2224      	movs	r2, #36	@ 0x24
+ 1b2:	0018      	movs	r0, r3
+ 1b4:	f7ff fffe 	bl	0 <memcpy>
+ 1b8:	b00b      	add	sp, #44	@ 0x2c
+ 1ba:	bcf0      	pop	{r4, r5, r6, r7}
+ 1bc:	46bb      	mov	fp, r7
+ 1be:	46b2      	mov	sl, r6
+ 1c0:	46a9      	mov	r9, r5
+ 1c2:	46a0      	mov	r8, r4
+ 1c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 1c6:	43c3      	mvns	r3, r0
+ 1c8:	17db      	asrs	r3, r3, #31
+ 1ca:	4018      	ands	r0, r3
+ 1cc:	e767      	b.n	9e <model_run_naive+0x9e>
+ 1ce:	46c0      	nop			@ (mov r8, r8)
+ 1d0:	00000090 	.word	0x00000090
+	...
+ 1dc:	1d84a873 	.word	0x1d84a873
+ 1e0:	3f5cfb3f 	.word	0x3f5cfb3f
